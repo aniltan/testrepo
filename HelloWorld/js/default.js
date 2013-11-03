@@ -17,7 +17,22 @@
                 // TODO: This application has been reactivated from suspension.
                 // Restore application state here.
             }
-            args.setPromise(WinJS.UI.processAll());
+            
+            args.setPromise(WinJS.UI.processAll().then(function completed() {
+
+                // Retrieve the div that hosts the Rating control.
+                var ratingControlDiv = document.getElementById("ratingControlDiv");
+
+                // Retrieve the actual Rating control.
+                var ratingControl = ratingControlDiv.winControl;
+
+                // Register the event handler. 
+                ratingControl.addEventListener("change", ratingChanged, false);
+
+                // Retrieve the button and register our event handler. 
+                var helloButton = document.getElementById("helloButton");
+                helloButton.addEventListener("click", buttonClickHandler, false);
+            }));
         }
     };
 
@@ -29,6 +44,19 @@
         // asynchronous operation before your application is suspended, call
         // args.setPromise().
     };
+
+    function buttonClickHandler(eventInfo) {
+
+        var userName = document.getElementById("nameInput").value;
+        var greetingString = "Hello, " + userName + "!";
+        document.getElementById("greetingOutput").innerText = greetingString;
+    }
+
+    function ratingChanged(eventInfo) {
+
+        var ratingOutput = document.getElementById("ratingOutput");
+        ratingOutput.innerText = eventInfo.detail.tentativeRating;
+    }
 
     app.start();
 })();
