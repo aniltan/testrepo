@@ -18,6 +18,7 @@
                 // Restore application state here.
             }
             args.setPromise(WinJS.UI.processAll());
+
         }
     };
 
