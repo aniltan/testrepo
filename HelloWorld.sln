@@ -4,6 +4,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "HelloWorld", "HelloWorld\HelloWorld.jsproj", "{B3FD6BF2-4F49-42BC-B451-D6E6A8ED1BDB}"
 EndProject
 Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://aniltan.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = HelloWorld\\HelloWorld.jsproj
+		SccProjectName1 = HelloWorld
+		SccLocalPath1 = HelloWorld
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
