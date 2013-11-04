@@ -23,6 +23,7 @@
                 if (outputValue) {
                     var greetingOutput = document.getElementById("greetingOutput");
                     greetingOutput.innerText = outputValue;
+                }
             }
             
             args.setPromise(WinJS.UI.processAll().then(function completed() {
@@ -44,6 +45,16 @@
                 // event handler.
                 var nameInput = document.getElementById("nameInput");
                 nameInput.addEventListener("change", nameInputChanged);
+
+                // Restore app data. 
+                var roamingSettings = Windows.Storage.ApplicationData.current.roamingSettings;
+
+                // Restore the user name.
+                var userName =
+                    Windows.Storage.ApplicationData.current.roamingSettings.values["userName"];
+                if (userName) {
+                    nameInput.value = userName;
+                }
 
                 // Restore the rating. 
                 var greetingRating = roamingSettings.values["greetingRating"];
